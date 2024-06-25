@@ -11,24 +11,10 @@ Welcome to the Moksha Restaurant Reservation System! This application allows cus
 
 ## Technologies Used
 
-### Frontend
+- MERN Stack
 
-- React
-- Axios
-- React Hot Toast for notifications
-- React Router for navigation
-- CSS for styling
 
-### Backend
 
-- Node.js
-- Express.js
-- MongoDB with Mongoose for database management
-- dotenv for environment variable management
-- CORS for handling cross-origin requests
 
-### Prerequisites
 
-- Node.js
-- MongoDB
 
