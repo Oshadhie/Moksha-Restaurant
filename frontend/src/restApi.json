@@ -1,6 +1,197 @@
 {
     "data": [
-        {"navbarLinks": [
+        {"ourQualities" : [
+            {
+                "id": 1,
+                "image": "./quality_food.svg",
+                "title": "QUALITY FOOD",
+                "description": "At Moksha Restaurant, quality food is our cornerstone. Each dish is meticulously crafted using the finest, freshest ingredients and traditional cooking techniques. Our commitment to excellence ensures that every bite bursts with authentic flavors." 
+            },
+            {
+                "id": 2,
+                "image": "./super_taste.svg",
+                "title": "SUPER TASTE",
+                "description": "Moksha Restaurant is a culinary gem, offering a harmonious blend of traditional and modern Indian cuisine in a serene and elegant setting. With dishes like Mughlai Murgh, Paneer Tikka Masala, and Biryani, each plate is a celebration of rich, aromatic flavors." 
+            },
+            {
+                "id": 3,
+                "image": "./fast_delivery.svg",
+                "title": "FRIENDLY SERVICES",
+                "description": "At Moksha Restaurant, we pride ourselves on providing friendly and attentive service. Our staff is dedicated to making every guest feel welcome and valued, ensuring a warm and pleasant dining experience. With a genuine smile and a helpful attitude." 
+            }
+        ],
+        "breakfast":[
+            {
+                "id":1,
+                "image":"./breakfast1.jpeg",
+                "title":"Oatmeal Glazed Breakfast Cake",
+                "category":"Breakfast"
+            },
+            {
+                "id":2,
+                "image":"./breakfast2.jpeg",
+                "title":"Pancakes",
+                "category":"Breakfast"
+            },
+            {
+                "id":3,
+                "image":"./breakfast3.jpeg",
+                "title":"Menemen",
+                "category":"Breakfast"
+            },
+            {
+                "id":4,
+                "image":"./breakfast4.jpeg",
+                "title":"Egg-Stuffed Bacon and Cheese Muffins",
+                "category":"Breakfast"
+            },
+            {
+                "id":5,
+                "image":"./breakfast5.jpeg",
+                "title":"Hash Brown Omelet",
+                "category":"Breakfast"
+            },
+            {
+                "id":6,
+                "image":"./breakfast6.jpeg",
+                "title":"Oatmeal Glazed Breakfast Cake",
+                "category":"Breakfast"
+            },
+            {
+                "id":7,
+                "image":"./breakfast7.jpeg",
+                "title":"Full Irish Breakfast",
+                "category":"Breakfast"
+            },
+            {
+                "id":8,
+                "image":"./breakfast8.jpeg",
+                "title":"Avocado Toasts",
+                "category":"Breakfast"
+            } 
+        ],
+        "lunch":[
+            {
+                "id":1,
+                "image":"./lunch1.jpeg",
+                "title":"Yellow rice and curry",
+                "category":"Lunch"
+            },
+            {
+                "id":2,
+                "image":"./lunch2.jpeg",
+                "title":"Red rice and curry",
+                "category":"Lunch"
+            },
+            {
+                "id":3,
+                "image":"./lunch3.jpeg",
+                "title":"White rice and curry(English)",
+                "category":"Lunch"
+            },
+            {
+                "id":4,
+                "image":"./lunch4.jpeg",
+                "title":"Nasi Goreng",
+                "category":"Lunch"
+            },
+            {
+                "id":5,
+                "image":"./lunch5.jpeg",
+                "title":"White rice and curry(Sinhala)",
+                "category":"Lunch"
+            },
+            {
+                "id":6,
+                "image":"./lunch6.jpeg",
+                "title":"Fried Rice",
+                "category":"Lunch"
+            },
+            {
+                "id":7,
+                "image":"./lunch7.jpeg",
+                "title":"Biriyani",
+                "category":"Lunch"
+            },
+            {
+                "id":8,
+                "image":"./lunch8.jpeg",
+                "title":"Italian Spaghetti",
+                "category":"Lunch"
+            } 
+        ],
+        "team": [
+            {
+                "id": 1,
+                "image": "./team_member_1.png",
+                "name": "JOHNATHAN TYLER",
+                "designation": "Founder & Head Chef"
+            },
+            {
+                "id": 2,
+                "image": "./team_member_2.png",
+                "name": "WADE WARREN",
+                "designation": "Sous Chef"
+            },
+            {
+                "id": 3,
+                "image": "./team_member_3.png",
+                "name": "JHON DOE",
+                "designation": "Fast Food Chef"
+            },
+            {
+                "id": 4,
+                "image": "./team_member_4.png",
+                "name": "ALEX COAL",
+                "designation": "Senior Chef"
+            }
+        ],
+        "testimonials": [
+            {
+                "id": 1,
+                "image": "./review1.png",
+                "description": "Morbi nulla nec dui lacus, in. Libero in pretium metus massa. Sodales dignissim vitae mauris varius faucibus. Eleifend dui, non laoreet ac luctus facilisis diam. Enim scelerisque vel at id viverra tellus.",
+                "rating": 4,
+                "userName": "Jane Cooper"
+            },
+            {
+                "id": 2,
+                "image": "./review2.png",
+                "description": "Tortor vel nunc netus pharetra enim, enim dolor mauris in. Sit nam fringilla in egestas. Libero condimentum quis in vulputate adipiscing venenatis augue. Venenatis faucibus.",
+                "rating": 4.5,
+                "userName": "Esther Howard"
+            },
+            {
+                "id": 3,
+                "image": "./review3.png",
+                "description": "Tortor vel nunc netus pharetra enim, enim dolor mauris in. Sit nam fringilla in egestas. Libero condimentum quis in vulputate adipiscing venenatis augue. Venenatis faucibus.",
+                "rating": 5,
+                "userName": "Guy Hawkins"
+            }
+        ],
+        "who_we_are": [
+            {
+                "id": 1,
+                "number": "14",
+                "title": "Restaurants"
+            },
+            {
+                "id": 2,
+                "number": "20",
+                "title": "Chef In Kitchen"
+            },
+            {
+                "id": 3,
+                "number": "08",
+                "title": "Years Of Experience"
+            },
+            {
+                "id": 4,
+                "number": "200",
+                "title": "Food Dishes"
+            }
+        ],
+        "navbarLinks": [
             {
                 "id": 1,
                 "title": "HOME",
@@ -16,7 +207,11 @@
                 "title": "SERVICES",
                 "link": "qualities"
             },
-           
+            {
+                "id": 4,
+                "title": "TEAM",
+                "link": "team"
+            },
             {
                 "id": 5,
                 "title": "RESERVATION",
