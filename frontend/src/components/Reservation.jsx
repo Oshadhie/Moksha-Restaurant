@@ -40,9 +40,21 @@ const Reservation = () => {
     }
   };
 
+  // Get today's date in the format yyyy-mm-dd
+  const getCurrentDate = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const dd = String(today.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  };
+
   return (
     <section className="reservation" id="reservation">
       <div className="container">
+        <div className="banner">
+          <img src="/reservation.png" alt="res" />
+        </div>
         <div className="banner">
           <div className="reservation_form_box">
             <h1>MAKE A RESERVATION</h1>
@@ -68,6 +80,7 @@ const Reservation = () => {
                   placeholder="Date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
+                  min={getCurrentDate()} // Set the min attribute to today
                 />
                 <input
                   type="time"
@@ -85,7 +98,7 @@ const Reservation = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
-                  type="numbe"
+                  type="number"
                   placeholder="Phone"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
