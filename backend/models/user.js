@@ -1,34 +1,35 @@
 import mongoose from "mongoose";
-import validator from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const userSchema = new mongoose.Schema({
     name:{
-        type:String,
-        required: [true, "First Name Is Required!"],
+      type:String,
+      required: [true, "First Name Is Required!"],
     },
     email: {
-        type: String,
-        required: [true, "Email Is Required!"],
-        validate: [validator.isEmail, "Provide A Valid Email!"],
+      type: String,
+      required: [true, "Email Is Required!"],
+      match: [
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      ],
     },
     password: {
-        type: String,
-        required: [true, "Password Is Required!"],
-        minLength: [5, "Password Must Contain At Least 5 Characters!"],
-        select: false,
+      type: String,
+      required: [true, "Password Is Required!"],
+      minLength: [5, "Password Must Contain At Least 5 Characters!"],
+      select: false,
     },
     role: {
-        type: String,
-        required: [true, "User Role Required!"],
-        enum: ["User", "Admin"],
+      type: String,
+      required: [true, "User Role Required!"],
+      enum: ["User", "Admin"],
     },
     
 });
 
 userSchema.pre("save", async function (next) {
-    if (!this.isModified("password")) {
+  if (!this.isModified("password")) {
       next();
     }
     this.password = await bcrypt.hash(this.password, 10);

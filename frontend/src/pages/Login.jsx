@@ -13,6 +13,10 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
     try {
       const response = await axios.post(
         "http://localhost:8070/api/v1/user/login",
@@ -38,6 +42,12 @@ const Login = () => {
     } catch (error) {
       toast.error(error.response.data.message);
     }
+  };
+
+ // Email validation function
+  const validateEmail = (email) => {
+  const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+    return emailPattern.test(email);
   };
 
   return (

@@ -128,7 +128,7 @@ const FetchReservation = () => {
                   <th>Status</th>
                   <th>Arrived Time</th>
                   <th>Iscome</th>
-                  <th>Delete</th>
+                  <th>Remove</th>
                 </tr>
               </thead>
               <tbody>
