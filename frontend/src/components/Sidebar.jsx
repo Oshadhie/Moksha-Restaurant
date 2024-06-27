@@ -35,17 +35,34 @@ const Sidebar = () => {
   };
 
   return (
-    <>
-      <nav className= "sidebar">
+    <div className="S_navigation">
+            <ul>
+                <li>
+                    <Link to ="#">
+                        <span className="S_title ">page</span>
+                    </Link>
+                </li>
 
-        <div className="links">
-          <TiHome onClick={gotoHomePage} />
-          <MdAddModerator onClick={gotoAddNewAdmin} />
-          <RiLogoutBoxFill onClick={handleLogout} />
+                <li>
+                    <Link to="/">
+                        <span className="S_title">add admin</span>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link to='/invite'>
+                        <span className="S_title "></span>
+                    </Link >
+                </li>
+
+                <li>
+                    <Link to='/display'>
+                        <span className="S_title"></span>
+                    </Link>
+                </li>
+
+            </ul>
         </div>
-      </nav>
-      
-    </>
   );
 };
 
