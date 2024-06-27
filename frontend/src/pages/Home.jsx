@@ -17,8 +17,6 @@ const Home = () => {
       <About/>
       <Qualities/>
       <Footer/>
-      
-      
       </>
   )
 }

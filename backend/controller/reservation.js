@@ -1,7 +1,8 @@
 import ErrorHandler from "../middlewares/error.js";
 import { Reservation } from "../models/reservation.js";
 
-const send_reservation = async (req, res, next) => {
+export const send_reservation = async (req, res, next) => {
+
   const { firstName, lastName, email, date, time, phone } = req.body;
   if (!firstName || !lastName || !email || !date || !time || !phone) {
     return next(new ErrorHandler("Please Fill Full Reservation Form!", 400));
@@ -23,7 +24,59 @@ const send_reservation = async (req, res, next) => {
     // Handle other errors
     return next(error);
   }
+}
+
+export const fetch_reservations = async (req, res, next) => {
+  try {
+    const reservations = await Reservation.find();
+    res.status(200).json({
+      success: true,
+      count: reservations.length,
+      data: reservations,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
+export const updateReservationStatus = async (req, res, next) => {
+    const { id } = req.params;
+    let reservation = await Reservation.findById(id);
+    if (!reservation) {
+      return next(new ErrorHandler("Appointment not found!", 404));
+    }
+    reservation = await Reservation.findByIdAndUpdate(id, req.body, {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    });
+    res.status(200).json({
+      success: true,
+      message: "Appointment Status Updated!",
+    });
+}
 
-export default send_reservation;
+export const updateArrivalStatus = async (req, res, next) => {
+  const { id } = req.params;
+  const { isCome } = req.body;
+  try {
+    const reservation = await Reservation.findById(id);
+
+    if (!reservation) {
+      return next(new ErrorHandler("Reservation not found", 404));
+    }
+
+    reservation.isCome = isCome;
+    reservation.arrivedTime = isCome ? new Date().toISOString() : null;
+    await reservation.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Arrival status updated successfully",
+      data: reservation,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
