@@ -8,7 +8,7 @@ const Menu = () => {
         <div className="container">
             <div className="heading_section">
                 <h1 className="heading">POPULAR DISHES</h1>
-                <p></p>
+                <p> Come and Enjoy with Us. </p>
             </div>
             <div className="dishes_container">
                 {

@@ -43,7 +43,7 @@ export const updateReservationStatus = async (req, res, next) => {
     const { id } = req.params;
     let reservation = await Reservation.findById(id);
     if (!reservation) {
-      return next(new ErrorHandler("Appointment not found!", 404));
+      return next(new ErrorHandler("Reservation not found!", 404));
     }
     reservation = await Reservation.findByIdAndUpdate(id, req.body, {
       new: true,
@@ -52,7 +52,7 @@ export const updateReservationStatus = async (req, res, next) => {
     });
     res.status(200).json({
       success: true,
-      message: "Appointment Status Updated!",
+      message: "Reservation Status Updated!",
     });
 }
 
@@ -80,3 +80,15 @@ export const updateArrivalStatus = async (req, res, next) => {
   }
 };
 
+export const deleteReservation = async (req, res, next) => {
+  const { id } = req.params;
+  const reservation = await Reservation.findById(id);
+  if (!reservation) {
+    return next(new ErrorHandler("Reservation Not Found!", 404));
+  }
+  await reservation.deleteOne();
+  res.status(200).json({
+    success: true,
+    message: "Reservation Deleted!",
+  });
+};

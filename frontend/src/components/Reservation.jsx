@@ -80,7 +80,7 @@ const Reservation = () => {
                   placeholder="Date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  min={getCurrentDate()} // Set the min attribute to today
+                  min={getCurrentDate()} 
                 />
                 <input
                   type="time"

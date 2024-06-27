@@ -21,6 +21,7 @@ const FetchReservation = () => {
     fetchReservations();
   }, []);
 
+  //logout from page
   const handleLogout = async () => {
     try {
       const response = await axios.get('http://localhost:8070/api/v1/user/adminlogout', {
@@ -35,6 +36,7 @@ const FetchReservation = () => {
 
   if (error) return <div>{error}</div>;
 
+  //update status
   const handleUpdateStatus = async (reservationId, status) => {
     try {
       const { data } = await axios.put(
@@ -55,6 +57,7 @@ const FetchReservation = () => {
     }
   };
 
+  //update arrived time
   const handleUpdateArrivalStatus = async (id, isCome) => {
     try {
       const { data } = await axios.put(
@@ -69,6 +72,16 @@ const FetchReservation = () => {
             : reservation
         )
       );
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
+  const handleDeleteReservation = async (id) => {
+    try {
+      const { data } = await axios.delete(`http://localhost:8070/api/v1/reservation/delete/${id}`, { withCredentials: true });
+      setReservations(reservations.filter(reservation => reservation._id !== id));
       toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -115,6 +128,7 @@ const FetchReservation = () => {
                   <th>Status</th>
                   <th>Arrived Time</th>
                   <th>Iscome</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -154,6 +168,10 @@ const FetchReservation = () => {
                         <option value="No" className="value-yes">No</option>
                       </select>
                     </td>
+                    <td>
+                      <button className="delete-button" onClick={() => handleDeleteReservation(reservation._id)}> Delete </button>
+                    </td>
+
                   </tr>
                 ))}
               </tbody>
