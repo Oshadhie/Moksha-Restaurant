@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { TiHome } from "react-icons/ti";
-import { RiLogoutBoxFill } from "react-icons/ri";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { MdAddModerator } from "react-icons/md";
+
+
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -44,19 +42,19 @@ const Sidebar = () => {
                 </li>
 
                 <li>
-                    <Link to="/">
+                    <Link to="#">
                         <span className="S_title">add admin</span>
                     </Link>
                 </li>
 
                 <li>
-                    <Link to='/invite'>
+                    <Link to='#'>
                         <span className="S_title "></span>
                     </Link >
                 </li>
 
                 <li>
-                    <Link to='/display'>
+                    <Link to='#'>
                         <span className="S_title"></span>
                     </Link>
                 </li>

@@ -29,7 +29,7 @@ const Login = () => {
       if (userRole === "Admin") {
         navigateTo("/admindashboard"); // Navigate to admin dashboard
       } else {
-        navigateTo("/"); // Navigate to default user dashboard
+        navigateTo("/home"); // Navigate to default user dashboard
       }
 
       setEmail("");
@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <>
       <div className="Login-Nav">
-      <button className="first-home" onClick={() => navigateTo("/")}> Home </button>
+      <button className="first-home" onClick={() => navigateTo("/home")}> Home </button>
       <button className="first-home2" onClick={() => navigateTo("/signup")}> Sign Up </button>
       </div>
     <section className="container form-component">

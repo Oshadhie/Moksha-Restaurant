@@ -12,7 +12,7 @@ dotenv.config({ path: "./config/config.env" });
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL],
-    methods: ["POST" , "GET" , "PUT"],
+    methods: ["POST", "GET", "PUT"],
     credentials: true,
   })
 );
@@ -22,10 +22,17 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1/reservation", reservationRouter);
 app.use("/api/v1/user", userRouter);
-app.get("/login", (req, res, next)=>{return res.status(200).json({
-  success: true,
-  message: "HELLO WORLD AGAIN"
-})})
+
+app.get("/", (req, res) => {
+  res.redirect("/login");
+});
+
+app.get("/login", (req, res, next) => {
+  return res.status(200).json({
+    success: true,
+    message: "HELLO WORLD AGAIN"
+  });
+});
 
 dbConnection();
 
